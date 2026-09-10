@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Menu from "@/components/Menu";
 import FindUs from "@/components/FindUs";
+import MobileStickyBar from "@/components/MobileStickyBar";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <Menu />
       </main>
       <FindUs />
+      <MobileStickyBar />
     </>
   );
 }

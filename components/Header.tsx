@@ -109,12 +109,12 @@ export default function Header() {
           </div>
 
           {/* Mobile Right Controls: Quick Book + Hamburger Toggle */}
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-2.5 md:hidden">
             <a
               href={waLink(WHATSAPP_BOOKING_MESSAGE)}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-chili px-3.5 py-1.5 text-xs font-bold text-ink"
+              className="flex min-h-[38px] items-center justify-center bg-chili px-3.5 py-1.5 text-xs font-bold text-ink transition-transform active:scale-95"
             >
               Book
             </a>
@@ -125,7 +125,7 @@ export default function Header() {
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-menu"
               aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
-              className="flex h-10 w-10 items-center justify-center text-cream hover:text-chili focus-visible:text-chili"
+              className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center text-cream transition-transform active:scale-95 hover:text-chili focus-visible:text-chili"
             >
               <svg
                 className="h-6 w-6"
@@ -158,30 +158,30 @@ export default function Header() {
           <div
             id="mobile-menu"
             ref={menuRef}
-            className="border-t border-cream/15 bg-ink px-5 py-6 text-cream md:hidden"
+            className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto overscroll-contain border-t border-cream/15 bg-ink px-5 py-6 text-cream shadow-2xl md:hidden"
           >
             <nav
               aria-label="Mobile Navigation"
-              className="flex flex-col space-y-4 text-lg font-bold font-display"
+              className="flex flex-col font-display text-lg font-bold"
             >
               <Link
                 href="#menu"
                 onClick={closeMenu}
-                className="border-b border-cream/10 pb-3 hover:text-chili focus-visible:text-chili"
+                className="block border-b border-cream/10 py-3.5 transition-colors hover:text-chili focus-visible:text-chili"
               >
                 The Menu
               </Link>
               <Link
                 href="#about"
                 onClick={closeMenu}
-                className="border-b border-cream/10 pb-3 hover:text-chili focus-visible:text-chili"
+                className="block border-b border-cream/10 py-3.5 transition-colors hover:text-chili focus-visible:text-chili"
               >
                 Our Story
               </Link>
               <Link
                 href="#find-us"
                 onClick={closeMenu}
-                className="border-b border-cream/10 pb-3 hover:text-chili focus-visible:text-chili"
+                className="block border-b border-cream/10 py-3.5 transition-colors hover:text-chili focus-visible:text-chili"
               >
                 Find Us &amp; Hours
               </Link>
@@ -193,7 +193,7 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="block bg-chili px-4 py-3 text-center text-sm font-bold text-ink"
+                className="block min-h-[44px] bg-chili px-4 py-3.5 text-center text-sm font-bold text-ink transition-transform active:scale-[0.98]"
               >
                 Book a Table on WhatsApp
               </a>
@@ -202,18 +202,18 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenu}
-                className="block border-2 border-curry px-4 py-3 text-center text-sm font-bold text-cream hover:bg-curry"
+                className="block min-h-[44px] border-2 border-curry px-4 py-3.5 text-center text-sm font-bold text-cream transition-colors hover:bg-curry active:scale-[0.98]"
               >
                 Order Delivery on WhatsApp
               </a>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-cream/10 text-xs text-cream/70 flex justify-between">
+            <div className="mt-6 flex justify-between border-t border-cream/10 pt-4 text-xs text-cream/70">
               <a
                 href={CONTACT.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-chili"
+                className="inline-block py-2 hover:text-chili"
               >
                 Instagram {CONTACT.instagramHandle}
               </a>
@@ -221,7 +221,7 @@ export default function Header() {
                 href={CONTACT.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-chili"
+                className="inline-block py-2 hover:text-chili"
               >
                 TikTok {CONTACT.tiktokHandle}
               </a>

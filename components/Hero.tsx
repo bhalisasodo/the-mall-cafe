@@ -32,21 +32,21 @@ export default function Hero() {
           {CONTACT.address}
         </p>
 
-        <h1 className="mt-3 max-w-3xl font-display text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl md:text-7xl">
+        <h1 className="mt-3 max-w-3xl font-display text-4xl font-black leading-[1.05] tracking-tight sm:text-6xl md:text-7xl break-words">
           South African Indian street food, done properly.
         </h1>
 
-        <p className="mt-6 max-w-xl text-base text-cream/80 md:text-lg">
+        <p className="mt-5 max-w-xl text-base text-cream/80 sm:mt-6 md:text-lg">
           Bunny chow, akhni, curry chips and fusion plates cooked fresh, fast,
           and full of flavour — eat in, take out, or have it delivered.
         </p>
 
-        <div className="mt-9 flex flex-wrap gap-4">
+        <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
           <a
             href={waLink(WHATSAPP_BOOKING_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-chili px-6 py-3.5 font-display text-base font-bold text-ink transition-transform hover:scale-[1.03]"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-chili px-6 py-3.5 font-display text-base font-bold text-ink transition-transform active:scale-[0.98] hover:scale-[1.02]"
           >
             Book a Table on WhatsApp
           </a>
@@ -54,7 +54,7 @@ export default function Hero() {
             href={waLink(WHATSAPP_DELIVERY_MESSAGE)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border-2 border-curry bg-transparent px-6 py-3.5 font-display text-base font-bold text-cream transition-colors hover:bg-curry"
+            className="inline-flex w-full sm:w-auto items-center justify-center gap-2 border-2 border-curry bg-transparent px-6 py-3.5 font-display text-base font-bold text-cream transition-colors hover:bg-curry active:scale-[0.98]"
           >
             Order Delivery on WhatsApp
           </a>
