@@ -6,6 +6,9 @@ import Menu from "@/components/Menu";
 import About from "@/components/About";
 import FindUs from "@/components/FindUs";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import CartDrawer from "@/components/CartDrawer";
+import FloatingCartButton from "@/components/FloatingCartButton";
+import Toast from "@/components/Toast";
 
 export default function Home() {
   return (
@@ -20,6 +23,9 @@ export default function Home() {
       </main>
       <FindUs />
       <MobileStickyBar />
+      <FloatingCartButton />
+      <CartDrawer />
+      <Toast />
     </>
   );
 }

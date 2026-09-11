@@ -1,7 +1,6 @@
 import Image from "next/image";
 import {
   CONTACT,
-  WHATSAPP_GATSBY_MESSAGE,
   WHATSAPP_ORDER_MESSAGE,
 } from "@/lib/site-data";
 import gatsbyHeroImg from "@/public/menu/gatsby-hero-16x9.jpg";

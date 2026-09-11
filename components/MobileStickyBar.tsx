@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { CONTACT, WHATSAPP_ORDER_MESSAGE } from "@/lib/site-data";
+import { useCart } from "@/context/CartContext";
 
 function waLink(message: string) {
   return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
@@ -10,6 +11,8 @@ function waLink(message: string) {
 }
 
 export default function MobileStickyBar() {
+  const { itemCount, openCart } = useCart();
+
   return (
     <aside
       aria-label="Quick mobile order bar"
@@ -42,22 +45,45 @@ export default function MobileStickyBar() {
           </svg>
           <span>Call</span>
         </a>
-        <a
-          href={waLink(WHATSAPP_ORDER_MESSAGE)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex min-h-[44px] flex-[1.4] items-center justify-center gap-1.5 rounded bg-teal px-3 text-xs font-black uppercase tracking-wider text-white shadow-md transition-transform active:scale-95"
-        >
-          <svg
-            className="h-4 w-4 shrink-0"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+
+        {itemCount > 0 ? (
+          <button
+            type="button"
+            onClick={openCart}
+            className="flex min-h-[44px] flex-[1.4] items-center justify-center gap-1.5 rounded bg-teal px-3 text-xs font-black uppercase tracking-wider text-white shadow-md transition-transform active:scale-95 cursor-pointer"
           >
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.079-2.146-.519-1.859-.764-3.048-2.656-3.14-2.778-.093-.122-.751-.998-.751-1.905 0-.907.476-1.353.646-1.538.169-.185.37-.231.494-.231.123 0 .247.001.354.006.113.005.263-.043.411.312.155.372.529 1.29.575 1.383.046.092.077.2.015.323-.061.123-.092.2-.185.308-.092.108-.194.241-.277.323-.092.093-.189.194-.081.379.108.185.479.79 1.028 1.278.708.631 1.305.826 1.49.919.185.092.293.077.401-.046.108-.124.462-.539.585-.724.124-.185.247-.154.416-.092.169.062 1.077.508 1.262.6.185.093.308.139.354.216.046.077.046.446-.098.851z" />
-          </svg>
-          <span>Order Now</span>
-        </a>
+            <svg
+              className="h-4 w-4 shrink-0"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.2"
+              aria-hidden="true"
+            >
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            <span>Cart ({itemCount})</span>
+          </button>
+        ) : (
+          <a
+            href={waLink(WHATSAPP_ORDER_MESSAGE)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex min-h-[44px] flex-[1.4] items-center justify-center gap-1.5 rounded bg-teal px-3 text-xs font-black uppercase tracking-wider text-white shadow-md transition-transform active:scale-95"
+          >
+            <svg
+              className="h-4 w-4 shrink-0"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.079-2.146-.519-1.859-.764-3.048-2.656-3.14-2.778-.093-.122-.751-.998-.751-1.905 0-.907.476-1.353.646-1.538.169-.185.37-.231.494-.231.123 0 .247.001.354.006.113.005.263-.043.411.312.155.372.529 1.29.575 1.383.046.092.077.2.015.323-.061.123-.092.2-.185.308-.092.108-.194.241-.277.323-.092.093-.189.194-.081.379.108.185.479.79 1.028 1.278.708.631 1.305.826 1.49.919.185.092.293.077.401-.046.108-.124.462-.539.585-.724.124-.185.247-.154.416-.092.169.062 1.077.508 1.262.6.185.093.308.139.354.216.046.077.046.446-.098.851z" />
+            </svg>
+            <span>Order Now</span>
+          </a>
+        )}
       </div>
     </aside>
   );

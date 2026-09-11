@@ -8,6 +8,7 @@ import {
   CONTACT,
   WHATSAPP_ORDER_MESSAGE,
 } from "@/lib/site-data";
+import { useCart } from "@/context/CartContext";
 
 function waLink(message: string) {
   return `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
@@ -26,6 +27,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("gatsbys");
   const menuRef = useRef<HTMLDivElement>(null);
+  const { itemCount, openCart } = useCart();
 
   // Dynamic scrollspy: track active section as customer scrolls
   useEffect(() => {
@@ -221,6 +223,31 @@ export default function Header() {
 
           {/* Desktop Actions */}
           <div className="hidden items-center gap-2.5 lg:gap-3 md:flex shrink-0">
+            <button
+              type="button"
+              onClick={openCart}
+              aria-label={`View Cart with ${itemCount} items`}
+              className="relative border border-teal/60 bg-teal/10 hover:bg-teal/20 text-teal px-3.5 py-2 lg:px-4 lg:py-2 text-xs font-black uppercase tracking-wider transition-colors flex items-center gap-1.5 cursor-pointer rounded"
+            >
+              <svg
+                className="h-4 w-4 shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              <span>Cart</span>
+              {itemCount > 0 && (
+                <span className="bg-teal text-white text-[10px] font-black px-1.5 py-0.5 rounded-full min-w-[18px] text-center">
+                  {itemCount}
+                </span>
+              )}
+            </button>
             <a
               href={`tel:${CONTACT.phoneTelPrimary}`}
               className="border border-white/25 px-3.5 py-2 lg:px-4 lg:py-2 text-xs font-bold text-white uppercase tracking-wider hover:bg-white/10 transition-colors"
@@ -238,8 +265,33 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Right Controls: Quick Order Button + Hamburger */}
+          {/* Mobile Right Controls: Cart + Quick Order Button + Hamburger */}
           <div className="flex items-center gap-2 md:hidden shrink-0">
+            <button
+              type="button"
+              onClick={openCart}
+              aria-label={`Open Cart (${itemCount} items)`}
+              className="relative flex min-h-[40px] min-w-[40px] items-center justify-center rounded border border-white/20 bg-white/10 text-white transition-transform active:scale-95 cursor-pointer"
+            >
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+              </svg>
+              {itemCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-teal text-white px-1 text-[10px] font-black border border-black shadow-xs">
+                  {itemCount}
+                </span>
+              )}
+            </button>
+
             <a
               href={waLink(WHATSAPP_ORDER_MESSAGE)}
               target="_blank"
@@ -338,6 +390,18 @@ export default function Header() {
               </nav>
 
               <div className="mt-6 flex flex-col gap-3 font-display">
+                {itemCount > 0 && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      closeMenu();
+                      openCart();
+                    }}
+                    className="flex min-h-[46px] items-center justify-center gap-2 border border-teal bg-teal/20 px-4 py-3.5 text-center text-sm font-black uppercase tracking-wider text-teal transition-transform active:scale-[0.98] shadow-md rounded cursor-pointer"
+                  >
+                    <span>🛒 View Cart ({itemCount} items)</span>
+                  </button>
+                )}
                 <a
                   href={waLink(WHATSAPP_ORDER_MESSAGE)}
                   target="_blank"
