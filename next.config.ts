@@ -13,6 +13,8 @@ const isUserSite = repoName.toLowerCase().endsWith(".github.io");
 const basePath =
   process.env.BASE_PATH !== undefined
     ? process.env.BASE_PATH
+    : process.env.basePath !== undefined
+    ? process.env.basePath
     : repoName && !isUserSite
     ? `/${repoName}`
     : "";

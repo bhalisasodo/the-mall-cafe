@@ -1,6 +1,15 @@
 // Central configuration for contact details, locations, hours, and structured menu items.
 // Tailored for The Mall Cafe (Verulam branch).
 
+import type { StaticImageData } from "next/image";
+import gatsbyImg from "@/public/menu/gatsby-hero-16x9.jpg";
+import classicBurgersImg from "@/public/menu/classic-burgers-food.jpg";
+import smashBurgersImg from "@/public/menu/smash-burgers-food.jpg";
+import chickenTikkaImg from "@/public/menu/chicken-tikka-food.jpg";
+import shawarmaImg from "@/public/menu/shawarma-food.jpg";
+import toastedSandwichImg from "@/public/menu/toasted-sandwich-food.jpg";
+import bunnyChowImg from "@/public/menu/bunny-chow-food.jpg";
+
 export const CONTACT = {
   tagline: "A Passion for Taste",
   brandName: "The Mall Cafe",
@@ -57,64 +66,64 @@ export type MenuCategory = {
   tagline?: string;
   flavors?: string[];
   flavorPricingNote?: string;
-  image: string;
+  image: StaticImageData | string;
   accentColor: "teal" | "red" | "yellow" | "black";
   items: MenuItem[];
 };
 
-export const CATEGORIES_LIST: { id: string; name: string; image: string; blurb: string }[] = [
+export const CATEGORIES_LIST: { id: string; name: string; image: StaticImageData | string; blurb: string }[] = [
   {
     id: "gatsby",
     name: "The Mega Gatsby",
-    image: "/menu/gatsby-hero-16x9.jpg",
+    image: gatsbyImg,
     blurb: "Feeds 4 • 80's Style Legend",
   },
   {
     id: "classic-burgers",
     name: "Classic Mutton Burgers",
-    image: "/menu/classic-burgers-food.jpg",
+    image: classicBurgersImg,
     blurb: "Single patty classics from R28",
   },
   {
     id: "jumbo-burgers",
     name: "Jumbo & Chicken Burgers",
-    image: "/menu/classic-burgers-food.jpg",
+    image: classicBurgersImg,
     blurb: "Jumbo mutton, fillet & veg",
   },
   {
     id: "smash-burgers",
     name: "Smash Burgers",
-    image: "/menu/smash-burgers-food.jpg",
+    image: smashBurgersImg,
     blurb: "120g handcrafted smash patties",
   },
   {
     id: "tikka-grills",
     name: "Chicken Tikka & Grills",
-    image: "/menu/chicken-tikka-food.jpg",
+    image: chickenTikkaImg,
     blurb: "Tandoori flame grills & feasts",
   },
   {
     id: "shawarma",
     name: "Pita Shawarma",
-    image: "/menu/shawarma-food.jpg",
+    image: shawarmaImg,
     blurb: "Loaded warm pita pockets",
   },
   {
     id: "sandwiches",
     name: "Toasted Sandwiches",
-    image: "/menu/toasted-sandwich-food.jpg",
+    image: toastedSandwichImg,
     blurb: "Old-school steak & melts",
   },
   {
     id: "bunnies-curries",
     name: "Bunnies & Curries",
-    image: "/menu/bunny-chow-food.jpg",
+    image: bunnyChowImg,
     blurb: "1/4 Durban bunnies & tubs",
   },
   {
     id: "sides",
     name: "Sides & Extras",
-    image: "/menu/bunny-chow-food.jpg",
+    image: bunnyChowImg,
     blurb: "Rotis, chips, salads & soji",
   },
 ];
@@ -126,7 +135,7 @@ export const MENU: MenuCategory[] = [
     subtitle: "The Big Share Meal — Feeds 4",
     tagline: "80's Style — What Makes Us Legends",
     flavors: ["Creamy Mexican Sauce", "Original Mall Sauce"],
-    image: "/menu/gatsby-hero-16x9.jpg",
+    image: gatsbyImg,
     accentColor: "red",
     items: [
       {
@@ -156,7 +165,7 @@ export const MENU: MenuCategory[] = [
     id: "classic-burgers",
     title: "Classic Mutton Burgers",
     subtitle: "Single Patty Classics",
-    image: "/menu/classic-burgers-food.jpg",
+    image: classicBurgersImg,
     accentColor: "black",
     items: [
       {
@@ -209,7 +218,7 @@ export const MENU: MenuCategory[] = [
     id: "jumbo-burgers",
     title: "Jumbo Mutton Burgers",
     subtitle: "Thick Jumbo Patties with Big Flavour",
-    image: "/menu/classic-burgers-food.jpg",
+    image: classicBurgersImg,
     accentColor: "black",
     items: [
       {
@@ -270,7 +279,7 @@ export const MENU: MenuCategory[] = [
     id: "chicken-burgers",
     title: "Chicken & Soya Veg Burgers",
     subtitle: "Fillet, Crunchy Crumb & Plant-Based Patties",
-    image: "/menu/classic-burgers-food.jpg",
+    image: classicBurgersImg,
     accentColor: "teal",
     items: [
       {
@@ -341,7 +350,7 @@ export const MENU: MenuCategory[] = [
     title: "Smash Burgers",
     subtitle: "\"Get Smashed in Verulam\"",
     tagline: "Handcrafted 120g pure smash patties seared on the flat-top, served with side chips",
-    image: "/menu/smash-burgers-food.jpg",
+    image: smashBurgersImg,
     accentColor: "red",
     items: [
       {
@@ -392,7 +401,7 @@ export const MENU: MenuCategory[] = [
     subtitle: "Flame-Kissed Charcoal Tikka, Kebabs & Big Feast Combos",
     tagline: "Flavours: Traditional • Portuguese Hot • Portuguese Mild • Kashmiri Hot • Kashmiri Mild • Jalapeno",
     flavorPricingNote: "Add flavours: Portion +R3.50 | Full Chicken +R15",
-    image: "/menu/chicken-tikka-food.jpg",
+    image: chickenTikkaImg,
     accentColor: "yellow",
     items: [
       {
@@ -503,7 +512,7 @@ export const MENU: MenuCategory[] = [
     title: "Pita Shawarma",
     subtitle: "Warm Stuffed Pita Pockets",
     tagline: "Now available in 2 exciting flavours: Peri Mayo or Spicy Mall Sauce",
-    image: "/menu/shawarma-food.jpg",
+    image: shawarmaImg,
     accentColor: "yellow",
     items: [
       {
@@ -534,7 +543,7 @@ export const MENU: MenuCategory[] = [
     id: "sandwiches",
     title: "Toasted Sandwiches",
     subtitle: "Old-School Griddled Favourites",
-    image: "/menu/toasted-sandwich-food.jpg",
+    image: toastedSandwichImg,
     accentColor: "black",
     items: [
       {
@@ -588,7 +597,7 @@ export const MENU: MenuCategory[] = [
     id: "bunnies-curries",
     title: "Bunnies & Curries",
     subtitle: "1/4 Durban Bunny & 500ml Takeaway Tubs",
-    image: "/menu/bunny-chow-food.jpg",
+    image: bunnyChowImg,
     accentColor: "yellow",
     items: [
       {
@@ -621,7 +630,7 @@ export const MENU: MenuCategory[] = [
     id: "sides",
     title: "Side Items & Treats",
     subtitle: "Hot Chips, Roti, Salads & Sweet Soji",
-    image: "/menu/bunny-chow-food.jpg",
+    image: bunnyChowImg,
     accentColor: "teal",
     items: [
       {
