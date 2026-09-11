@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #121212;
-  --color-teal: #2fa5b3;
-  --color-chili: #D90429;
-  --color-mustard: #F59E0B;
-  --color-turmeric: #FBBF24;
-  --color-sand: #EFE6D8;
-  --color-curry: #16A34A;
-  --color-cream: #FAF7F2;
+  --color-teal: #4A9C9A;   /* primary brand color — category banners, checker pattern, CTAs */
+  --color-black: #000000;  /* logo background, dark sections, primary text */
+  --color-red: #993C36;    /* accent — "Passion for Taste" tagline, HOT/spice callouts */
+  --color-grey: #8C8C8C;   /* neutral background / muted text */
+  --color-white: #FFFFFF;  /* script logo text, body copy on dark backgrounds */
+
+  /* Compatibility & utility tokens */
+  --color-ink: #000000;
+  --color-chili: #993C36;
+  --color-cream: #F8F9FA;
+  --color-sand: #F0F2F3;
 }
 
 @theme inline {
-  --color-ink: var(--color-ink);
   --color-teal: var(--color-teal);
+  --color-black: var(--color-black);
+  --color-red: var(--color-red);
+  --color-grey: var(--color-grey);
+  --color-white: var(--color-white);
+  --color-ink: var(--color-ink);
   --color-chili: var(--color-chili);
-  --color-mustard: var(--color-mustard);
-  --color-turmeric: var(--color-turmeric);
-  --color-sand: var(--color-sand);
-  --color-curry: var(--color-curry);
   --color-cream: var(--color-cream);
+  --color-sand: var(--color-sand);
   --font-display: "Archivo", "Impact", "Arial Black", "Arial Narrow", sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -47,10 +51,31 @@ body {
   }
 }
 
-/* High-contrast keyboard focus indicators */
+/* High-contrast keyboard focus indicators using brand teal */
 :focus-visible {
-  outline: 2px solid var(--color-chili);
+  outline: 2px solid var(--color-teal);
   outline-offset: 2px;
+}
+
+/* Authentic diner/cafe brand checker pattern using teal */
+.checker-teal {
+  background-image:
+    linear-gradient(45deg, #4A9C9A 25%, transparent 25%),
+    linear-gradient(-45deg, #4A9C9A 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #4A9C9A 75%),
+    linear-gradient(-45deg, transparent 75%, #4A9C9A 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+.checker-teal-subtle {
+  background-image:
+    linear-gradient(45deg, rgba(74, 156, 154, 0.2) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(74, 156, 154, 0.2) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(74, 156, 154, 0.2) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(74, 156, 154, 0.2) 75%);
+  background-size: 14px 14px;
+  background-position: 0 0, 0 7px, 7px -7px, -7px 0px;
 }
 
 /* Authentic flyer-style dotted leader between item name and price */

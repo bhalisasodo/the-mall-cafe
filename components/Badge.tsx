@@ -16,7 +16,7 @@ export default function Badge({ type, className = "", size = "sm" }: BadgeProps)
     case "HOT":
       return (
         <span
-          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-chili text-white shadow-sm ${sizeClasses} ${className}`}
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-[#993C36] text-white shadow-xs ${sizeClasses} ${className}`}
           title="Spicy / Hot"
         >
           <span aria-hidden="true">🌶</span>
@@ -26,34 +26,27 @@ export default function Badge({ type, className = "", size = "sm" }: BadgeProps)
     case "NEW":
       return (
         <span
-          className={`inline-flex items-center rounded font-black uppercase tracking-wider bg-[#FF3B30] text-white shadow-sm ${sizeClasses} ${className}`}
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-teal text-white shadow-xs ${sizeClasses} ${className}`}
+          title="New Item"
         >
-          NEW
+          <span aria-hidden="true">🆕</span>
+          <span>NEW</span>
         </span>
       );
     case "VEG":
       return (
         <span
-          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-green-700 text-white shadow-sm ${sizeClasses} ${className}`}
-          title="Vegetarian"
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-emerald-700 text-white shadow-xs ${sizeClasses} ${className}`}
+          title="Vegetarian / Soya"
         >
           <span aria-hidden="true">🌱</span>
           <span>VEG</span>
         </span>
       );
-    case "POPULAR":
-      return (
-        <span
-          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-turmeric text-ink shadow-sm ${sizeClasses} ${className}`}
-        >
-          <span aria-hidden="true">★</span>
-          <span>POPULAR</span>
-        </span>
-      );
     case "FEEDS 4":
       return (
         <span
-          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-ink text-turmeric border border-turmeric/40 shadow-sm ${sizeClasses} ${className}`}
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-black text-white border border-teal/50 shadow-xs ${sizeClasses} ${className}`}
         >
           <span>FEEDS 4</span>
         </span>
@@ -61,7 +54,7 @@ export default function Badge({ type, className = "", size = "sm" }: BadgeProps)
     case "FLAGSHIP":
       return (
         <span
-          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-teal text-white shadow-sm ${sizeClasses} ${className}`}
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-teal text-white shadow-xs ${sizeClasses} ${className}`}
         >
           <span>FLAGSHIP</span>
         </span>
@@ -69,17 +62,17 @@ export default function Badge({ type, className = "", size = "sm" }: BadgeProps)
     case "HALAL":
       return (
         <span
-          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-ink/90 text-cream border border-cream/30 ${sizeClasses} ${className}`}
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-black text-emerald-400 border border-emerald-500/40 ${sizeClasses} ${className}`}
         >
           <span>HALAL</span>
         </span>
       );
-    case "SWEET":
+    case "SPECIAL":
       return (
         <span
-          className={`inline-flex items-center rounded font-black uppercase tracking-wider bg-amber-600 text-white ${sizeClasses} ${className}`}
+          className={`inline-flex items-center gap-1 rounded font-black uppercase tracking-wider bg-black text-white border border-teal/40 ${sizeClasses} ${className}`}
         >
-          SWEET
+          <span>SPECIAL</span>
         </span>
       );
     default:

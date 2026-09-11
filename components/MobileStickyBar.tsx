@@ -13,7 +13,7 @@ export default function MobileStickyBar() {
   return (
     <aside
       aria-label="Quick mobile order bar"
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/20 bg-neutral-950/95 px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-md md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/20 bg-black/95 px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-2xl backdrop-blur-md md:hidden"
     >
       <div className="mx-auto flex max-w-md items-center gap-2">
         <Link
@@ -24,10 +24,10 @@ export default function MobileStickyBar() {
         </Link>
         <a
           href={`tel:${CONTACT.phoneTelPrimary}`}
-          className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded border border-turmeric/60 bg-amber-500/10 px-2 text-xs font-bold uppercase tracking-wider text-turmeric transition-colors active:bg-amber-500/20"
+          className="flex min-h-[44px] flex-1 items-center justify-center gap-1.5 rounded border border-teal/60 bg-teal/10 px-2 text-xs font-bold uppercase tracking-wider text-teal transition-colors active:bg-teal/20"
         >
           <svg
-            className="h-4 w-4 shrink-0 text-turmeric"
+            className="h-4 w-4 shrink-0 text-teal"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ export default function MobileStickyBar() {
           href={waLink(WHATSAPP_ORDER_MESSAGE)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex min-h-[44px] flex-[1.4] items-center justify-center gap-1.5 rounded bg-chili px-3 text-xs font-black uppercase tracking-wider text-white shadow-md transition-transform active:scale-95"
+          className="flex min-h-[44px] flex-[1.4] items-center justify-center gap-1.5 rounded bg-teal px-3 text-xs font-black uppercase tracking-wider text-white shadow-md transition-transform active:scale-95"
         >
           <svg
             className="h-4 w-4 shrink-0"

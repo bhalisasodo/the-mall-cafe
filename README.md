@@ -1,52 +1,28 @@
-# The Mall Cafe — Website
+# The Mall Cafe (Verulam) — Website
 
-A booking-first Next.js site for The Mall Cafe (94 Wick Street, Verulam, 4339).
+Official website for The Mall Cafe (94 Wick Street, Verulam, 4339).
 
 ## Launch Checklist Status
 
-- [x] **`whatsappNumber`** — Configured (`27815776930`).
-- [x] **`phoneDisplay` & call links** — Configured (`081 577 6930`).
-- [x] **Address & Trading Hours** — Configured for 94 Wick St, Verulam with split Friday hours.
-- [ ] **Menu items and prices** — Currently showing sample Durban street food preview. Update with official menu and prices in `lib/site-data.ts` once finalized.
+- [x] **Brand Colors & Design Tokens** — Configured according to official brand material:
+  - `--color-teal: #4A9C9A` (primary brand color — category banners, checker pattern, CTAs)
+  - `--color-black: #000000` (logo background, dark sections, primary text)
+  - `--color-red: #993C36` (accent — "Passion for Taste" tagline, HOT/spice callouts)
+  - `--color-grey: #8C8C8C` (neutral background / muted text)
+  - `--color-white: #FFFFFF` (script logo text, body copy on dark backgrounds)
+- [x] **Hero** — "Home of The Gatsby", kicker "Since 1987", red accent tagline "Passion for Taste".
+- [x] **Single Contact Number Site-Wide** — `081 577 6930` configured across all calls, WhatsApp, bookings, and deliveries (`+27815776930` / `27815776930`).
+- [x] **Authoritative Verulam Menu (13 Groups)** — All 13 official categories, descriptions, notes, and prices in ZAR populated in `lib/site-data.ts`.
+- [x] **Footer Requirements** — Includes 94 Wick Street, Verulam address, 100% Halal certification badge, Proudly South African mark, "We Deliver" notice, and responsive icon-only social links (Instagram & TikTok) with placeholder `href="#"` flagged for client profile URLs.
 
-Both "Book a Table" and "Order Delivery" buttons open WhatsApp with a
-pre-filled message — no live booking calendar is wired up, matching what
-was asked for. If a live booking/ordering system is wanted later, this is
-the file (`components/Hero.tsx`, `components/Header.tsx`,
-`components/FindUs.tsx`) where those buttons live.
+## Social Links Launch Note
 
-## Logo
+In `components/FindUs.tsx`:
+- Instagram: `<a href="#" aria-label="Instagram" ...>`
+- TikTok: `<a href="#" aria-label="TikTok" ...>`
+Update both `href` values in `lib/site-data.ts` (`instagramPlaceholder`, `tiktokPlaceholder`) once the client provides their official social media handles.
 
-`public/logo.png` is the logo used across the site (header, and the source
-for the favicon/apple touch icon) — a high-fidelity recreation built from a
-low-res screenshot you provided, since no vector/original file existed yet.
-
-`public/logo.svg` is the editable vector source, kept for future edits. It
-depends on two fonts (Poppins for "THE"/"CAFE", Great Vibes for the "Mall"
-script) that aren't loaded by the website, so don't swap the PNG for the raw
-SVG in the header without either embedding those fonts or converting the
-text to outlined paths first — otherwise it'll fall back to whatever cursive
-font the visitor's browser has, which varies.
-
-**Once you send the real brand file** (AI/EPS/high-res PNG with transparent
-background), replace `public/logo.png` and regenerate `favicon.ico` /
-`apple-touch-icon.png` from it — the recreation is a close match but is not
-a substitute for the original artwork.
-
-## Brand assets
-
-This build uses a color palette and layout designed from the brief
-(South African Indian street food / fusion fast food) since no logo or
-brand guideline files were provided. Once you send over the logo and
-brand colors/fonts, they should replace:
-
-- Color tokens in `app/globals.css` (`--color-ink`, `--color-chili`,
-  `--color-turmeric`, `--color-sand`, `--color-curry`, `--color-cream`)
-- The text wordmark in `components/Header.tsx` — swap for the logo image
-- Font stacks in `app/globals.css` (`--font-display`, `--font-body`) if the
-  brand has specific typefaces
-
-## Local development
+## Local Development
 
 ```bash
 npm install
@@ -55,26 +31,8 @@ npm run dev
 
 Visit http://localhost:3000
 
-## Production build
+## Production Build
 
 ```bash
 npm run build
-npm run start
 ```
-
-## Deployment (Render)
-
-This project is configured for one-click deployment on **Render**:
-- `render.yaml` Blueprint is provided in the repository root.
-- Node environment: Node 20 LTS (specified via `.node-version` and `NODE_VERSION: 20` in `render.yaml`).
-- **Build command**: `npm run build`
-- **Start command**: `npm run start`
-
-### How to deploy on Render:
-1. Push this repository to GitHub/GitLab.
-2. In Render, select **New +** → **Blueprint** and connect the repository (it will automatically detect `render.yaml`).
-3. Alternatively, create a **Web Service** with:
-   - **Runtime**: Node
-   - **Build Command**: `npm run build`
-   - **Start Command**: `npm run start`
-   - **Environment Variable**: `NODE_VERSION` = `20`

@@ -12,44 +12,48 @@ function waLink(message: string) {
 export default function GatsbyCallout() {
   const gatsbyItems = [
     {
-      name: "Soya Gatsby",
+      name: "Soya (includes mushroom)",
       tag: "VEG" as const,
-      price: "R115",
-      desc: "Seasoned grilled soya cuts, chips, crisp greens & sauce",
+      price: "R110.00",
+      desc: "Toasted naan smothered in garlic butter, seasoned grilled soya with mushroom, fresh salads, crispy chips, cheese & signature sauces",
     },
     {
-      name: "Chicken Gatsby",
-      tag: "POPULAR" as const,
-      price: "R130",
-      desc: "Tender seasoned chicken fillet cubes, golden chips & house sauce",
-    },
-    {
-      name: "Steak Gatsby",
+      name: "Chicken",
       tag: "FLAGSHIP" as const,
-      price: "R148",
-      desc: "Grilled tender steak slices, chips, fried onions & signature sauce",
+      price: "R130.00",
+      desc: "Toasted naan smothered in garlic butter, tender chicken, fresh salads, polony, crispy chips, cheese & signature sauces",
+    },
+    {
+      name: "Steak",
+      tag: "FLAGSHIP" as const,
+      price: "R140.00",
+      desc: "Toasted naan smothered in garlic butter, juicy steak, fresh salads, polony, crispy chips, cheese & signature sauces",
     },
   ];
 
   return (
     <section
-      id="gatsby-feature"
-      className="relative bg-zinc-950 text-white py-14 sm:py-20 border-y border-white/10"
+      id="gatsbys"
+      className="relative bg-black text-white py-14 sm:py-20 border-y border-white/10"
     >
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         {/* Banner Tag */}
         <div className="flex flex-wrap items-center justify-between gap-3 pb-6 border-b border-white/15">
           <div className="flex items-center gap-2">
-            <span className="bg-chili text-white text-xs font-black uppercase px-2.5 py-1 tracking-wider">
-              Flagship Feast
+            <span className="bg-teal text-white text-xs font-black uppercase px-2.5 py-1 tracking-wider rounded">
+              Flagship Dish
             </span>
-            <span className="text-turmeric text-xs font-bold uppercase tracking-wider">
-              80&apos;s Style Heritage • Verulam
+            <span className="text-white/80 text-xs font-bold uppercase tracking-wider">
+              {CONTACT.since} • {CONTACT.branch}
             </span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-white/70 font-bold uppercase">
-            <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            100% Halal • Feeds 4 Generously
+          <div className="flex items-center gap-3 text-xs text-white/80 font-bold uppercase">
+            <span className="flex items-center gap-1 text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              100% Halal
+            </span>
+            <span>•</span>
+            <span className="text-teal">Feeds Up To 4</span>
           </div>
         </div>
 
@@ -60,60 +64,43 @@ export default function GatsbyCallout() {
               <div className="relative aspect-[16/10] w-full">
                 <Image
                   src={gatsbyImg}
-                  alt="The Mega Mall Gatsby - The Big Share Meal Feeds 4"
+                  alt="OG Mega Mall Gatsbys - Flagship Dish Feeds up to 4"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 opacity-90"
                 />
               </div>
 
               {/* Floating badges on image */}
               <div className="absolute top-4 left-4 flex flex-col gap-2">
-                <span className="bg-black/85 backdrop-blur-md border border-amber-400/80 text-turmeric px-3 py-1 font-display text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg rounded">
-                  Feeds 4 Hungry People
+                <span className="bg-black/90 backdrop-blur-md border border-teal text-teal px-3 py-1 font-display text-xs sm:text-sm font-black uppercase tracking-wider shadow-lg rounded">
+                  Feeds Up To 4
                 </span>
-                <span className="bg-red-600/90 text-white px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider w-fit rounded">
-                  Big Share Meal
+                <span className="bg-teal text-white px-2.5 py-0.5 text-[11px] font-black uppercase tracking-wider w-fit rounded">
+                  Flagship Dish
                 </span>
               </div>
 
               <div className="absolute bottom-4 right-4">
                 <span className="bg-black/90 border border-white/30 text-white px-3 py-1 text-xs font-bold uppercase rounded backdrop-blur-md">
-                  From R115
+                  From R110.00
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Pricing, Flavours, and Details */}
+          {/* Right Column: Pricing, Description, and Details */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div>
-              <p className="text-turmeric font-display text-sm font-bold uppercase tracking-widest">
-                The Legend of The Mall Cafe Verulam
+              <p className="text-teal font-display text-xs sm:text-sm font-bold uppercase tracking-widest">
+                The Mall Cafe Verulam • {CONTACT.since}
               </p>
               <h2 className="mt-1 font-display text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white leading-tight">
-                The Mega Mall Gatsby
+                OG Mega Mall Gatsbys
               </h2>
-              <p className="mt-3 text-base sm:text-lg text-white/80 leading-relaxed">
-                The legendary share meal that made us famous. An enormous, freshly baked loaf stuffed from crust to crust with seasoned meat or veg, golden spiced chips, crisp salad, and drenched in our mouth-watering signature sauces.
+              <p className="mt-3 text-sm sm:text-base text-white/85 leading-relaxed">
+                Toasted naan smothered in garlic butter, loaded with your choice of juicy steak or tender chicken, fresh salads, polony, crispy chips, cheese, and finished with our signature sauces. <strong className="text-teal font-black">Feeds up to 4.</strong>
               </p>
-
-              {/* Sauce selector pill block */}
-              <div className="mt-5 rounded-lg bg-white/5 border border-white/10 p-4">
-                <p className="text-xs font-bold uppercase tracking-wider text-turmeric">
-                  Choose Your Flavor:
-                </p>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-chili/20 border border-chili px-3 py-1 text-xs font-bold text-white">
-                    <span className="h-1.5 w-1.5 rounded-full bg-chili" />
-                    Creamy Mexican Sauce
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-teal/20 border border-teal px-3 py-1 text-xs font-bold text-teal">
-                    <span className="h-1.5 w-1.5 rounded-full bg-teal" />
-                    Original Mall Sauce
-                  </span>
-                </div>
-              </div>
 
               {/* 3 Flavors / Options List with Dotted Leader */}
               <div className="mt-6 space-y-3.5">
@@ -122,14 +109,14 @@ export default function GatsbyCallout() {
                     key={item.name}
                     className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-2 pb-3 border-b border-white/10"
                   >
-                    <div>
+                    <div className="flex-1 pr-2">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="font-display text-lg sm:text-xl font-black text-white uppercase">
+                        <span className="font-display text-base sm:text-lg font-black text-white uppercase">
                           {item.name}
                         </span>
                         <Badge type={item.tag} />
                       </div>
-                      <p className="mt-0.5 text-xs text-white/70">
+                      <p className="mt-0.5 text-xs text-white/70 leading-normal">
                         {item.desc}
                       </p>
                     </div>
@@ -137,10 +124,10 @@ export default function GatsbyCallout() {
                     <div className="hidden sm:block dotted-leader opacity-25" />
 
                     <div className="flex items-baseline justify-between sm:justify-end gap-3 pt-1 sm:pt-0">
-                      <span className="sm:hidden text-xs font-semibold text-turmeric/80 uppercase">
+                      <span className="sm:hidden text-xs font-semibold text-teal uppercase">
                         Feeds 4
                       </span>
-                      <span className="font-display text-xl sm:text-2xl font-black text-turmeric">
+                      <span className="font-display text-xl sm:text-2xl font-black text-teal">
                         {item.price}
                       </span>
                     </div>
@@ -155,7 +142,7 @@ export default function GatsbyCallout() {
                 href={waLink(WHATSAPP_GATSBY_MESSAGE)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 bg-chili px-6 py-4 font-display text-sm font-black uppercase tracking-wider text-white shadow-lg transition-all hover:bg-red-700 active:scale-98"
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-teal hover:bg-[#3D8583] px-6 py-4 font-display text-sm font-black uppercase tracking-wider text-white shadow-lg transition-all active:scale-[0.98]"
               >
                 <span>Order Mega Gatsby on WhatsApp</span>
                 <span aria-hidden="true">💬</span>
