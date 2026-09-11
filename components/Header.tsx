@@ -157,10 +157,15 @@ export default function Header() {
       <header className="sticky top-0 z-50 bg-black text-white border-b border-white/10 shadow-lg">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-3 sm:px-5 md:px-8 py-1.5">
           <Link
-            href="#top"
+            href="/"
             className="flex items-center gap-2 sm:gap-2.5 py-0.5 group min-w-0"
-            aria-label="The Mall Cafe Verulam - Home of The Gatsby"
-            onClick={closeMenu}
+            aria-label="The Mall Cafe Verulam - Home"
+            onClick={() => {
+              closeMenu();
+              if (typeof window !== "undefined" && window.location.pathname === "/") {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <div className="relative h-10 sm:h-11 md:h-12 lg:h-13 w-auto flex items-center shrink-0">
               <Image
