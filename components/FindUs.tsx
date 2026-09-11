@@ -1,7 +1,9 @@
+import Image from "next/image";
+import logoImg from "@/public/logo.png";
 import {
   CONTACT,
   HOURS,
-  WHATSAPP_BOOKING_MESSAGE,
+  WHATSAPP_ORDER_MESSAGE,
   WHATSAPP_DELIVERY_MESSAGE,
 } from "@/lib/site-data";
 
@@ -17,103 +19,169 @@ export default function FindUs() {
   )}`;
 
   return (
-    <section id="find-us" className="bg-ink py-14 pb-28 text-cream md:py-24 md:pb-24">
-      <div className="mx-auto grid max-w-6xl gap-10 sm:gap-12 px-5 md:grid-cols-3 md:gap-8 md:px-8">
-        <div>
-          <h2 className="font-display text-2xl font-extrabold">Find Us</h2>
-          <a
-            href={mapsHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-3 inline-flex items-center gap-1.5 text-cream/80 underline decoration-chili decoration-2 underline-offset-4 hover:text-chili"
-          >
-            <span>{CONTACT.address}</span>
-            <span className="text-xs text-chili" aria-hidden="true">↗</span>
-          </a>
-          <div className="mt-4 flex flex-col gap-2 text-sm sm:flex-row sm:flex-wrap">
-            <a
-              href={`tel:${CONTACT.phoneTel}`}
-              className="inline-flex min-h-[40px] items-center gap-2 rounded bg-cream/10 px-3.5 py-2 text-turmeric transition-colors hover:bg-cream/15 active:scale-98"
-            >
-              <svg className="h-4 w-4 shrink-0 text-turmeric" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              <span>Call: <strong className="text-cream">{CONTACT.phoneDisplay}</strong></span>
-            </a>
-            <a
-              href={waLink(WHATSAPP_BOOKING_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[40px] items-center gap-2 rounded bg-cream/10 px-3.5 py-2 text-turmeric transition-colors hover:bg-cream/15 active:scale-98"
-            >
-              <svg className="h-4 w-4 shrink-0 text-turmeric" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.079-2.146-.519-1.859-.764-3.048-2.656-3.14-2.778-.093-.122-.751-.998-.751-1.905 0-.907.476-1.353.646-1.538.169-.185.37-.231.494-.231.123 0 .247.001.354.006.113.005.263-.043.411.312.155.372.529 1.29.575 1.383.046.092.077.2.015.323-.061.123-.092.2-.185.308-.092.108-.194.241-.277.323-.092.093-.189.194-.081.379.108.185.479.79 1.028 1.278.708.631 1.305.826 1.49.919.185.092.293.077.401-.046.108-.124.462-.539.585-.724.124-.185.247-.154.416-.092.169.062 1.077.508 1.262.6.185.093.308.139.354.216.046.077.046.446-.098.851z" />
-              </svg>
-              <span>WhatsApp: <strong className="text-cream">{CONTACT.phoneDisplay}</strong></span>
-            </a>
+    <footer id="find-us" className="bg-neutral-950 text-white pt-16 pb-28 md:pb-16 border-t border-white/10">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
+        {/* Main 3-column contact grid */}
+        <div className="grid gap-10 md:grid-cols-3 md:gap-10 pb-12 border-b border-white/10">
+          {/* Col 1: Brand, Address & Phone */}
+          <div>
+            <div className="flex items-center gap-3">
+              <Image
+                src={logoImg}
+                alt="The Mall Cafe Logo"
+                className="h-12 w-auto object-contain"
+              />
+              <div>
+                <h2 className="font-display text-xl font-black uppercase text-white leading-tight">
+                  The Mall Cafe
+                </h2>
+                <p className="text-xs text-turmeric font-bold uppercase">
+                  Verulam Branch • &ldquo;{CONTACT.tagline}&rdquo;
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-5 space-y-2 text-sm text-white/80">
+              <p className="font-medium text-white">Visit Us in Verulam:</p>
+              <a
+                href={mapsHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-white/90 underline decoration-teal decoration-2 underline-offset-4 hover:text-teal transition-colors"
+              >
+                {CONTACT.address} ↗
+              </a>
+              <p className="text-xs text-white/60 italic pt-1">
+                Centrally located in Verulam. Fast takeaway &amp; local delivery.
+              </p>
+            </div>
+
+            {/* Direct Call & WhatsApp Buttons */}
+            <div className="mt-5 flex flex-col gap-2.5">
+              <a
+                href={`tel:${CONTACT.phoneTelPrimary}`}
+                className="inline-flex items-center gap-2.5 rounded bg-white/10 px-3.5 py-2 text-sm font-bold text-white hover:bg-white/15 transition-colors"
+              >
+                <span>📞 Call Store:</span>
+                <span className="text-turmeric">{CONTACT.phonePrimary}</span>
+              </a>
+              <a
+                href={`tel:${CONTACT.phoneTelSecondary}`}
+                className="inline-flex items-center gap-2.5 rounded bg-white/10 px-3.5 py-2 text-sm font-bold text-white hover:bg-white/15 transition-colors"
+              >
+                <span>📞 Landline:</span>
+                <span className="text-turmeric">{CONTACT.phoneSecondary}</span>
+              </a>
+              <a
+                href={waLink(WHATSAPP_ORDER_MESSAGE)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2.5 rounded bg-emerald-950/80 border border-emerald-500/40 px-3.5 py-2 text-sm font-bold text-emerald-400 hover:bg-emerald-900/60 transition-colors"
+              >
+                <span>💬 WhatsApp Order:</span>
+                <span>{CONTACT.whatsappDisplay}</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Col 2: Trading Hours */}
+          <div>
+            <h3 className="font-display text-lg font-black uppercase text-white border-b border-white/10 pb-2">
+              Trading Hours
+            </h3>
+            <ul className="mt-4 divide-y divide-white/10 text-sm text-white/80">
+              {HOURS.map((h) => (
+                <li
+                  key={h.day}
+                  className="py-2.5 flex items-center justify-between gap-2"
+                >
+                  <span className="font-medium text-white">{h.day}</span>
+                  <span className="text-turmeric font-mono font-semibold text-right">
+                    {h.time}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-4 rounded bg-white/5 p-3 text-xs text-white/70">
+              <span className="font-bold text-emerald-400">⚡ Takeaway &amp; Delivery:</span> Hot and freshly prepared for the Verulam community.
+            </div>
+          </div>
+
+          {/* Col 3: Direct Quick Order Paths */}
+          <div>
+            <h3 className="font-display text-lg font-black uppercase text-white border-b border-white/10 pb-2">
+              Order Online
+            </h3>
+            <p className="mt-4 text-xs text-white/70 leading-relaxed">
+              Place your order directly via WhatsApp or phone. We will confirm preparation time and deliver or have it ready for collection at our Verulam branch.
+            </p>
+
+            <div className="mt-4 flex flex-col gap-3">
+              <a
+                href={waLink(WHATSAPP_ORDER_MESSAGE)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[46px] items-center justify-center gap-2 bg-chili px-4 py-3 text-center font-display text-sm font-black uppercase tracking-wider text-white shadow transition-transform hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>WhatsApp Order (Fast)</span>
+                <span aria-hidden="true">💬</span>
+              </a>
+
+              <a
+                href={waLink(WHATSAPP_DELIVERY_MESSAGE)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex min-h-[46px] items-center justify-center gap-2 border-2 border-turmeric bg-transparent px-4 py-3 text-center font-display text-sm font-bold uppercase tracking-wider text-turmeric transition-colors hover:bg-turmeric hover:text-black active:scale-[0.98]"
+              >
+                <span>Request Delivery</span>
+                <span aria-hidden="true">🛵</span>
+              </a>
+            </div>
+
+            {/* Halal Badge Box */}
+            <div className="mt-6 rounded-lg border border-emerald-500/30 bg-emerald-950/40 p-3.5 flex items-center gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 text-xl font-bold">
+                ✓
+              </div>
+              <div>
+                <p className="font-display text-xs font-black uppercase tracking-wider text-emerald-400">
+                  Strictly Halal Certified
+                </p>
+                <p className="text-[11px] text-white/70">
+                  All meats and ingredients certified strictly Halal.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div>
-          <h2 className="font-display text-2xl font-extrabold">Hours</h2>
-          <ul className="mt-3 divide-y divide-cream/10 text-cream/80 sm:divide-none sm:space-y-2">
-            {HOURS.map((h) => (
-              <li key={h.day} className="flex flex-col gap-0.5 py-2 text-sm sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:py-0">
-                <span className="font-medium text-cream/90">{h.day}</span>
-                <span className="font-medium text-turmeric sm:text-right">{h.time}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Footer Sub-bar */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60">
+          <p>
+            &copy; {new Date().getFullYear()} The Mall Cafe Verulam. All rights reserved. &ldquo;{CONTACT.tagline}&rdquo;.
+          </p>
 
-        <div>
-          <h2 className="font-display text-2xl font-extrabold">
-            Book &amp; Order
-          </h2>
-          <div className="mt-3 flex flex-col gap-3">
-            <a
-              href={waLink(WHATSAPP_BOOKING_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center justify-center bg-chili px-5 py-3 text-center font-display text-sm font-bold text-ink transition-transform active:scale-[0.98] hover:scale-[1.02]"
-            >
-              Book a Table
-            </a>
-            <a
-              href={waLink(WHATSAPP_DELIVERY_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-[44px] items-center justify-center border-2 border-curry px-5 py-3 text-center font-display text-sm font-bold text-cream transition-colors hover:bg-curry active:scale-[0.98]"
-            >
-              Order Delivery
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div className="mx-auto mt-14 max-w-6xl border-t border-cream/15 px-5 pt-6 md:px-8">
-        <div className="flex flex-col items-start justify-between gap-4 text-sm text-cream/60 md:flex-row md:items-center">
-          <p>&copy; {new Date().getFullYear()} The Mall Cafe. All rights reserved.</p>
-          <div className="flex gap-5">
+          <div className="flex items-center gap-4">
             <a
               href={CONTACT.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-chili"
+              className="hover:text-turmeric transition-colors"
             >
               Instagram {CONTACT.instagramHandle}
             </a>
+            <span>•</span>
             <a
               href={CONTACT.tiktok}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-chili"
+              className="hover:text-turmeric transition-colors"
             >
               TikTok {CONTACT.tiktokHandle}
             </a>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }

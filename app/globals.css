@@ -1,24 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #1B1410;
-  --color-chili: #FF6B35;
-  --color-turmeric: #F2C14E;
+  --color-ink: #121212;
+  --color-teal: #2fa5b3;
+  --color-chili: #D90429;
+  --color-mustard: #F59E0B;
+  --color-turmeric: #FBBF24;
   --color-sand: #EFE6D8;
-  --color-curry: #3C7A5E;
-  --color-cream: #FBF6EE;
+  --color-curry: #16A34A;
+  --color-cream: #FAF7F2;
 }
 
 @theme inline {
   --color-ink: var(--color-ink);
+  --color-teal: var(--color-teal);
   --color-chili: var(--color-chili);
+  --color-mustard: var(--color-mustard);
   --color-turmeric: var(--color-turmeric);
   --color-sand: var(--color-sand);
   --color-curry: var(--color-curry);
   --color-cream: var(--color-cream);
-  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial,
-    sans-serif;
-  --font-body: "Inter", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Archivo", "Impact", "Arial Black", "Arial Narrow", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 html {
@@ -48,6 +51,16 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-chili);
   outline-offset: 2px;
+}
+
+/* Authentic flyer-style dotted leader between item name and price */
+.dotted-leader {
+  flex: 1 1 0%;
+  border-bottom: 2px dotted currentColor;
+  opacity: 0.35;
+  margin-bottom: 0.3rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 /* Torn-edge divider used between sections */

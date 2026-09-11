@@ -2,21 +2,29 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "The Mall Cafe | Verulam",
+  title: "The Mall Cafe | Home of The Gatsby | 100% Halal Takeaway",
   description:
-    "Modern South African Indian street food and fusion fast food, made fresh at The Mall Cafe, Verulam. Order in, take out, or get it delivered.",
+    "Home of The Gatsby (feeds 4). Authentic South African Indian street food, flame-grilled chicken tikka, smash burgers, toasted sandwiches, Durban bunnies & curries. 100% Halal certified.",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#1B1410",
+  themeColor: "#121212",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className="h-full antialiased scroll-smooth">
       <body className="min-h-full flex flex-col bg-cream text-ink overflow-x-hidden">
         {children}
       </body>
