@@ -82,3 +82,12 @@ body {
     84% 100%, 88% 15%, 92% 100%, 96% 5%, 100% 100%, 100% 0%
   );
 }
+
+/* Hide scrollbar for mobile horizontal category navigation while keeping smooth scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

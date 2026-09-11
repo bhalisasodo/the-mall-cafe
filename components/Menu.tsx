@@ -62,7 +62,7 @@ export default function Menu() {
         </div>
 
         {/* Sticky / Scrollable Category Filter Tabs */}
-        <div className="sticky top-[61px] sm:top-[69px] z-30 -mx-4 px-4 py-2.5 bg-sand/90 backdrop-blur-md border-y border-black/10 overflow-x-auto no-scrollbar mb-10 shadow-sm">
+        <div className="sticky top-[73px] sm:top-[85px] md:top-[98px] z-30 -mx-4 px-4 py-2.5 bg-sand/95 backdrop-blur-md border-y border-black/10 overflow-x-auto no-scrollbar mb-8 sm:mb-10 shadow-sm">
           <div className="flex items-center gap-2 min-w-max">
             <button
               type="button"
@@ -99,7 +99,7 @@ export default function Menu() {
         </div>
 
         {/* Categories List */}
-        <div className="space-y-16">
+        <div className="space-y-12 sm:space-y-16">
           {filteredCategories.map((category) => {
             // Determine if category has dual pricing (e.g. Burger vs Meal w/chips)
             const hasMealPricing = category.items.some((item) => !!item.mealPrice);
@@ -108,7 +108,7 @@ export default function Menu() {
               <div
                 key={category.id}
                 id={category.id}
-                className="scroll-mt-32 rounded-2xl bg-white border border-black/10 shadow-sm overflow-hidden"
+                className="scroll-mt-36 sm:scroll-mt-44 rounded-2xl bg-white border border-black/10 shadow-sm overflow-hidden"
               >
                 {/* Category Header Banner with color blocking */}
                 <div
@@ -218,10 +218,10 @@ export default function Menu() {
                       <div className="shrink-0 flex items-baseline justify-between sm:justify-end gap-4 pt-1 sm:pt-0">
                         {/* Mobile label fallback if dual pricing */}
                         {item.mealPrice ? (
-                          <div className="flex items-center gap-4 sm:gap-8 sm:w-44 justify-end text-right">
+                          <div className="flex items-center gap-3 sm:gap-8 sm:w-44 justify-end text-right">
                             <div className="flex sm:block items-baseline gap-1.5">
                               <span className="sm:hidden text-[10px] font-bold text-ink/50 uppercase">
-                                {category.id === "bunnies-curries" ? "¼ Bunny:" : category.id === "sides" ? "Single:" : "Single:"}
+                                {category.id === "bunnies-curries" ? "¼ Bunny:" : category.id === "sides" ? "Single:" : "Burger:"}
                               </span>
                               <span className="font-display text-base sm:text-lg font-bold text-ink">
                                 {item.price}
@@ -245,14 +245,14 @@ export default function Menu() {
                           </div>
                         )}
 
-                        {/* Fast 1-tap WhatsApp order button */}
+                        {/* Fast 1-tap WhatsApp order button with accessible 44px touch target */}
                         <a
                           href={waItemLink(item.name, category.title)}
                           target="_blank"
                           rel="noopener noreferrer"
                           title={`Order ${item.name} on WhatsApp`}
                           aria-label={`Order ${item.name} on WhatsApp`}
-                          className="opacity-75 hover:opacity-100 text-emerald-600 hover:text-emerald-700 transition-all p-1"
+                          className="text-emerald-600 hover:text-emerald-700 active:scale-90 transition-transform min-h-[44px] min-w-[44px] flex items-center justify-center p-2 rounded-full hover:bg-emerald-50 active:bg-emerald-100"
                         >
                           <svg
                             className="h-5 w-5"

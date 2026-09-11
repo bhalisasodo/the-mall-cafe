@@ -25,17 +25,17 @@ export default function FindUs() {
         <div className="grid gap-10 md:grid-cols-3 md:gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand, Address & Phone */}
           <div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3.5">
               <Image
                 src={logoImg}
                 alt="The Mall Cafe Logo"
-                className="h-12 w-auto object-contain"
+                className="h-14 sm:h-16 w-auto object-contain shrink-0 drop-shadow"
               />
               <div>
-                <h2 className="font-display text-xl font-black uppercase text-white leading-tight">
+                <h2 className="font-display text-xl sm:text-2xl font-black uppercase text-white leading-tight">
                   The Mall Cafe
                 </h2>
-                <p className="text-xs text-turmeric font-bold uppercase">
+                <p className="text-xs sm:text-sm text-turmeric font-bold uppercase tracking-wide">
                   Verulam Branch • &ldquo;{CONTACT.tagline}&rdquo;
                 </p>
               </div>

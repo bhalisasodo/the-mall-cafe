@@ -122,17 +122,22 @@ export default function GatsbyCallout() {
                     key={item.name}
                     className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 sm:gap-2 pb-3 border-b border-white/10"
                   >
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-display text-lg sm:text-xl font-black text-white uppercase">
-                        {item.name}
-                      </span>
-                      <Badge type={item.tag} />
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <span className="font-display text-lg sm:text-xl font-black text-white uppercase">
+                          {item.name}
+                        </span>
+                        <Badge type={item.tag} />
+                      </div>
+                      <p className="mt-0.5 text-xs text-white/70">
+                        {item.desc}
+                      </p>
                     </div>
 
                     <div className="hidden sm:block dotted-leader opacity-25" />
 
-                    <div className="flex items-baseline justify-between sm:justify-end gap-3">
-                      <span className="sm:hidden text-xs text-white/60">
+                    <div className="flex items-baseline justify-between sm:justify-end gap-3 pt-1 sm:pt-0">
+                      <span className="sm:hidden text-xs font-semibold text-turmeric/80 uppercase">
                         Feeds 4
                       </span>
                       <span className="font-display text-xl sm:text-2xl font-black text-turmeric">

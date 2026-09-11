@@ -50,7 +50,7 @@ export default function Hero() {
           </div>
 
           {/* Non-negotiable Headline */}
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] drop-shadow-md">
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] drop-shadow-md">
             Home of <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-orange-400">
               The Gatsby
