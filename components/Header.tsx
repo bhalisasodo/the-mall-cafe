@@ -15,9 +15,71 @@ function waLink(message: string) {
   )}`;
 }
 
+const NAV_ITEMS = [
+  { id: "gatsby-feature", label: "The Gatsby", mobileLabel: "🔥 The Mega Gatsby (Feeds 4)" },
+  { id: "menu", label: "Full Menu", mobileLabel: "Full Menu" },
+  { id: "why-us", label: "Why Us", mobileLabel: "Why The Mall Cafe" },
+  { id: "find-us", label: "Find Us", mobileLabel: "Find Us & Hours" },
+];
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("gatsby-feature");
   const menuRef = useRef<HTMLDivElement>(null);
+
+  // Dynamic scrollspy: track active section as the customer scrolls
+  useEffect(() => {
+    const sectionIds = ["gatsby-feature", "menu", "why-us", "find-us"];
+    let rafId: number | null = null;
+
+    function updateActiveSection() {
+      const isBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 70;
+
+      if (isBottom) {
+        setActiveSection("find-us");
+        return;
+      }
+
+      const headerOffset = 160;
+      let current = "gatsby-feature";
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top;
+          if (top <= headerOffset) {
+            current = id;
+          }
+        }
+      }
+
+      setActiveSection(current);
+    }
+
+    function handleScroll() {
+      if (rafId !== null) return;
+      rafId = window.requestAnimationFrame(() => {
+        updateActiveSection();
+        rafId = null;
+      });
+    }
+
+    // Initialize on mount
+    updateActiveSection();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      if (rafId !== null) {
+        window.cancelAnimationFrame(rafId);
+      }
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   // Close menu on Escape key press
   useEffect(() => {
@@ -123,30 +185,29 @@ export default function Header() {
             aria-label="Primary Navigation"
             className="hidden items-center gap-4 lg:gap-7 text-xs lg:text-sm font-bold uppercase tracking-wider md:flex"
           >
-            <Link
-              href="#gatsby-feature"
-              className="text-turmeric hover:text-white transition-colors"
-            >
-              The Gatsby
-            </Link>
-            <Link
-              href="#menu"
-              className="hover:text-teal transition-colors"
-            >
-              Full Menu
-            </Link>
-            <Link
-              href="#why-us"
-              className="hover:text-teal transition-colors"
-            >
-              Why Us
-            </Link>
-            <Link
-              href="#find-us"
-              className="hover:text-teal transition-colors"
-            >
-              Find Us
-            </Link>
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <Link
+                  key={item.id}
+                  href={`#${item.id}`}
+                  onClick={() => setActiveSection(item.id)}
+                  className={`relative py-1.5 transition-colors ${
+                    isActive
+                      ? "text-turmeric font-black"
+                      : "text-white/75 hover:text-white"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-x-0 -bottom-1 h-0.5 bg-turmeric rounded-full shadow-[0_0_8px_rgba(251,191,36,0.7)]"
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Desktop Actions */}
@@ -230,38 +291,41 @@ export default function Header() {
                 aria-label="Mobile Navigation"
                 className="flex flex-col font-display text-base sm:text-lg font-bold uppercase tracking-wider"
               >
-                <Link
-                  href="#gatsby-feature"
-                  onClick={closeMenu}
-                  className="flex items-center justify-between border-b border-cream/10 py-4 text-turmeric active:text-amber-300"
-                >
-                  <span>🔥 The Mega Gatsby (Feeds 4)</span>
-                  <span className="text-xs text-white/50">→</span>
-                </Link>
-                <Link
-                  href="#menu"
-                  onClick={closeMenu}
-                  className="flex items-center justify-between border-b border-cream/10 py-4 transition-colors hover:text-teal active:text-teal"
-                >
-                  <span>Full Menu</span>
-                  <span className="text-xs text-white/50">→</span>
-                </Link>
-                <Link
-                  href="#why-us"
-                  onClick={closeMenu}
-                  className="flex items-center justify-between border-b border-cream/10 py-4 transition-colors hover:text-teal active:text-teal"
-                >
-                  <span>Why The Mall Cafe</span>
-                  <span className="text-xs text-white/50">→</span>
-                </Link>
-                <Link
-                  href="#find-us"
-                  onClick={closeMenu}
-                  className="flex items-center justify-between border-b border-cream/10 py-4 transition-colors hover:text-teal active:text-teal"
-                >
-                  <span>Find Us &amp; Hours</span>
-                  <span className="text-xs text-white/50">→</span>
-                </Link>
+                {NAV_ITEMS.map((item) => {
+                  const isActive = activeSection === item.id;
+                  return (
+                    <Link
+                      key={item.id}
+                      href={`#${item.id}`}
+                      onClick={() => {
+                        setActiveSection(item.id);
+                        closeMenu();
+                      }}
+                      className={`flex items-center justify-between border-b border-cream/10 py-4 transition-colors ${
+                        isActive
+                          ? "text-turmeric font-black bg-white/5 px-2.5 -mx-2.5 rounded"
+                          : "text-cream hover:text-turmeric active:text-turmeric"
+                      }`}
+                    >
+                      <span className="flex items-center gap-2">
+                        {isActive && (
+                          <span
+                            aria-hidden="true"
+                            className="inline-block h-2 w-2 rounded-full bg-turmeric shadow-[0_0_6px_rgba(251,191,36,0.8)]"
+                          />
+                        )}
+                        <span>{item.mobileLabel}</span>
+                      </span>
+                      <span
+                        className={`text-xs ${
+                          isActive ? "text-turmeric font-bold" : "text-white/50"
+                        }`}
+                      >
+                        {isActive ? "●" : "→"}
+                      </span>
+                    </Link>
+                  );
+                })}
               </nav>
 
               <div className="mt-6 flex flex-col gap-3 font-display">
