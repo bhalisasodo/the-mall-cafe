@@ -155,36 +155,36 @@ export default function Header() {
       </div>
 
       <header className="sticky top-0 z-50 bg-black text-white border-b border-white/10 shadow-lg">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-3.5 py-2 sm:px-6 md:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-3 sm:px-5 md:px-8 py-1.5">
           <Link
             href="#top"
-            className="flex items-center gap-2.5 sm:gap-3.5 py-1 group min-w-0"
+            className="flex items-center gap-2 sm:gap-2.5 py-0.5 group min-w-0"
             aria-label="The Mall Cafe Verulam - Home of The Gatsby"
             onClick={closeMenu}
           >
-            <div className="relative h-14 sm:h-16 md:h-20 lg:h-22 w-auto flex items-center shrink-0">
+            <div className="relative h-10 sm:h-11 md:h-12 lg:h-13 w-auto flex items-center shrink-0">
               <Image
                 src={logoImg}
                 alt="The Mall Cafe Logo"
                 priority
-                className="h-14 w-auto sm:h-16 md:h-20 lg:h-22 object-contain drop-shadow-md transition-transform group-hover:scale-105"
+                className="h-10 w-auto sm:h-11 md:h-12 lg:h-13 object-contain drop-shadow-md transition-transform group-hover:scale-105"
               />
             </div>
             <div className="flex flex-col text-left justify-center min-w-0">
               <div className="flex items-center flex-wrap gap-x-1.5 sm:gap-x-2 leading-none">
-                <span className="font-display font-black tracking-tight text-white text-base sm:text-xl md:text-2xl lg:text-3xl leading-none">
+                <span className="font-display font-black tracking-tight text-white text-sm sm:text-base md:text-lg lg:text-xl leading-none">
                   THE MALL CAFE
                 </span>
-                <span className="inline-block rounded bg-teal/20 border border-teal/50 px-1 sm:px-1.5 py-0.5 text-[9px] sm:text-[11px] md:text-xs font-black text-teal uppercase tracking-wider">
+                <span className="inline-block rounded bg-teal/20 border border-teal/50 px-1 py-0.5 text-[8px] sm:text-[9px] md:text-[10px] font-black text-teal uppercase tracking-wider">
                   VERULAM
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 mt-1 sm:mt-1.5">
-                <span className="text-[10px] sm:text-xs md:text-sm font-extrabold text-white/90 uppercase tracking-wider truncate">
+              <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-extrabold text-white/90 uppercase tracking-wider truncate">
                   Home of The Gatsby
                 </span>
-                <span className="text-white/40 text-[10px] hidden sm:inline">•</span>
-                <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-[#993C36] hidden sm:inline">
+                <span className="text-white/40 text-[9px] hidden sm:inline">•</span>
+                <span className="text-[9px] sm:text-[10px] md:text-xs font-black uppercase tracking-wider text-[#993C36] hidden sm:inline">
                   {CONTACT.tagline}
                 </span>
               </div>
