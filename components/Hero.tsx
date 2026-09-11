@@ -26,46 +26,47 @@ export default function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center scale-105 opacity-60"
+          className="object-cover object-center scale-100 opacity-100"
         />
-        {/* Dark cinematic gradient scrim for high-contrast legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/50" />
-        <div className="absolute inset-0 bg-radial-[at_left_center] from-black/95 via-black/75 to-transparent" />
+        {/* Balanced vertical gradient: 25% at top (detail area) to 55% at bottom (CTA area) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-black/35 to-black/55" />
+        {/* Soft directional scrim behind the text column only */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent pointer-events-none" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-5 py-16 sm:py-20 md:px-8 md:py-24 w-full">
         <div className="max-w-2xl">
           {/* Trust Badges Bar & Subline Kicker */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
-            <span className="inline-flex items-center gap-1.5 rounded bg-black/80 border border-teal/60 px-3 py-1 text-xs font-black uppercase tracking-wider text-teal">
+            <span className="inline-flex items-center gap-1.5 rounded bg-black/80 backdrop-blur-xs border border-teal/60 px-3 py-1 text-xs font-black uppercase tracking-wider text-teal shadow-md">
               {CONTACT.since}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded bg-emerald-950/90 border border-emerald-500/50 px-3 py-1 text-xs font-black uppercase tracking-wider text-emerald-400">
+            <span className="inline-flex items-center gap-1.5 rounded bg-emerald-950/90 backdrop-blur-xs border border-emerald-500/50 px-3 py-1 text-xs font-black uppercase tracking-wider text-emerald-400 shadow-md">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
               100% Halal Certified
             </span>
-            <span className="inline-flex items-center rounded bg-white/10 border border-white/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+            <span className="inline-flex items-center rounded bg-black/70 backdrop-blur-xs border border-white/30 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-md">
               {CONTACT.branch}
             </span>
           </div>
 
-          {/* Hero Headline */}
-          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] drop-shadow-md">
+          {/* Hero Headline with protective drop shadows */}
+          <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] drop-shadow-[0_3px_12px_rgba(0,0,0,0.9)]">
             Home of <br />
-            <span className="text-teal">
+            <span className="text-teal drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               The Gatsby
             </span>
           </h1>
 
           {/* Tagline Treatment in Red Accent Small Caps as on the official brand plate */}
           <div className="mt-4 sm:mt-5 flex items-center gap-2">
-            <span className="font-display text-base sm:text-lg md:text-xl font-black uppercase tracking-[0.2em] text-[#993C36] drop-shadow-xs">
+            <span className="font-display text-base sm:text-lg md:text-xl font-black uppercase tracking-[0.2em] text-[#993C36] drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
               {CONTACT.tagline}
             </span>
-            <span className="h-0.5 w-12 bg-[#993C36]/60 hidden sm:inline-block" />
+            <span className="h-0.5 w-12 bg-[#993C36]/80 hidden sm:inline-block" />
           </div>
 
-          <p className="mt-4 text-sm sm:text-base text-white/80 max-w-lg leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-white font-medium max-w-lg leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
             Welcome to The Mall Cafe Verulam. Serving authentic, mouth-watering comfort food since 1987 — famous for our giant OG Mega Mall Gatsby (feeds up to 4), charcoal flame-grilled tikka, whopper burgers, loaded rolls, and bunnies.
           </p>
 
