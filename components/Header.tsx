@@ -179,15 +179,6 @@ export default function Header() {
                   VERULAM
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 mt-0.5 sm:mt-1">
-                <span className="text-[9px] sm:text-[10px] md:text-xs font-extrabold text-white/90 uppercase tracking-wider truncate">
-                  Home of The Gatsby
-                </span>
-                <span className="text-white/40 text-[9px] hidden sm:inline">•</span>
-                <span className="text-[9px] sm:text-[10px] md:text-xs font-black uppercase tracking-wider text-[#993C36] hidden sm:inline">
-                  {CONTACT.tagline}
-                </span>
-              </div>
             </div>
           </Link>
 
